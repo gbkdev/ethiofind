@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Swap these for next/font/google (Fraunces / Inter / JetBrains Mono)
+     variables in an environment with internet access at build time —
+     see the note in app/layout.tsx. */
+  --font-fraunces: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+  --font-inter: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Bright, modern SaaS base (white surfaces, near-black text) with the
+     Ethiopian indigo/ochre kept as brand accent colors rather than the
+     whole palette — this is the TinyWow-style "white canvas, colorful
+     accents" language instead of the earlier warm-paper editorial look. */
+  --paper: 247 248 250;
+  --paper-2: 237 239 243;
+  --ink: 17 20 28;
+  --ink-soft: 100 106 119;
+  --indigo: 67 56 202;
+  --ochre: 217 119 6;
+  --rust: 220 38 38;
+  --card: 255 255 255;
+  --line: 17 20 28;
+}
+
+.dark {
+  --paper: 12 13 16;
+  --paper-2: 20 22 27;
+  --ink: 240 241 244;
+  --ink-soft: 156 161 174;
+  --indigo: 129 140 248;
+  --ochre: 251 191 36;
+  --rust: 248 113 113;
+  --card: 20 22 27;
+  --line: 240 241 244;
+}
+
+body {
+  background-color: rgb(var(--paper));
+  color: rgb(var(--ink));
+}
+
+.tibeb {
+  height: 6px;
+  width: 100%;
+  background-image: linear-gradient(90deg, rgb(var(--indigo)), rgb(var(--ochre)), rgb(var(--rust)), rgb(var(--indigo)));
+  background-size: 200% 100%;
+}
+
+@keyframes toast-in {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10px, -14px) scale(1.04); }
+}
+.blob-anim { animation: blob-float 9s ease-in-out infinite; }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
